@@ -18,6 +18,7 @@
 
     <modules>
         <module>Redis</module>
+        <module>Kafka</module>
     </modules>
 
     <properties>

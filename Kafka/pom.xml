@@ -8,11 +8,11 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.process.redis</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>kafka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Redis</name>
-    <description>Demo project for Spring Boot</description>
+    <name>kafka</name>
+    <description>KafkaDemo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,11 +21,11 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
 
         <dependency>
@@ -49,6 +49,11 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
