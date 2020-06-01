@@ -8,8 +8,8 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.process.redis</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.process</groupId>
+    <artifactId>redis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Redis</name>
     <description>Demo project for Spring Boot</description>

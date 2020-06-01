@@ -8,10 +8,10 @@
         <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.process</groupId>
     <artifactId>kafka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>kafka</name>
+    <name>Kafka</name>
     <description>KafkaDemo project for Spring Boot</description>
 
     <properties>
