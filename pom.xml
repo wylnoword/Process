@@ -19,6 +19,7 @@
     <modules>
         <module>Redis</module>
         <module>Kafka</module>
+        <module>Zookeeper</module>
     </modules>
 
     <properties>
