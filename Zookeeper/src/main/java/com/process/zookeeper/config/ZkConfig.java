@@ -1,11 +1,14 @@
 package com.process.zookeeper.config;
 
+import com.process.zookeeper.listener.ZkDataListener;
+import lombok.Data;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.CuratorListener;
 import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -22,46 +25,25 @@ import java.util.concurrent.Executors;
  *
  */
 @Configuration
+@Data
 public class ZkConfig {
+
+    @Value("${zookeeper.host}")
+    private String zkHost;
+
+    @Value("${zookeeper.port}")
+    private String zkPort;
 
     @Bean("zookeeper")
     CuratorFramework getZkClient() throws Exception {
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
-        CuratorFramework client = CuratorFrameworkFactory.newClient("localhost:2181", retryPolicy);
-        System.out.println(client.getState());
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(2000, 3);
+        CuratorFramework client = CuratorFrameworkFactory.newClient(zkHost+":"+zkPort, retryPolicy);
         client.start();
-        setListenterThreeTwo(client);
+        ZkDataListener zkDataListener = new ZkDataListener(client,"/");
+        zkDataListener.listenData();
+        zkDataListener.listenNodeStatus();
+        zkDataListener.start();
         return client;
     }
 
-    private void setListenterThreeTwo(CuratorFramework client) throws Exception{
-        ExecutorService pool = Executors.newCachedThreadPool();
-        //设置节点的cache
-        final NodeCache nodeCache = new NodeCache(client, "/process/d1", false);
-        nodeCache.getListenable().addListener(() -> {
-            System.out.println("the test node is change and result is :");
-            System.out.println("path : "+nodeCache.getCurrentData().getPath());
-            System.out.println("data : "+new String(nodeCache.getCurrentData().getData()));
-            System.out.println("stat : "+nodeCache.getCurrentData().getStat());
-        });
-
-        TreeCache treeCache = new TreeCache(client, "/process/dd");
-        treeCache.getListenable().addListener((curatorFramework, treeCacheEvent) -> {
-            switch (treeCacheEvent.getType()){
-                case NODE_UPDATED:
-                    System.out.println("数据更新");
-                    break;
-                case NODE_ADDED:
-                    System.out.println("加节点");
-                    break;
-                case NODE_REMOVED:
-                    System.out.println("节点移除");
-                    break;
-                default:
-                    System.out.println("others");
-            }
-        }, pool);
-        nodeCache.start();
-        treeCache.start();
-    }
 }
