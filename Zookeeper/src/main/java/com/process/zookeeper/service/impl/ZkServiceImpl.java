@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -18,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class ZkServiceImpl implements ZkService {
 
 
+    private static final String ROOT_PATH_LOCK = "rootlock";
 
     @Autowired
     private CuratorFramework zookeeper;
