@@ -18,5 +18,5 @@ public interface ZkService {
 
     List<String> getChildPath(String path) throws Exception;
 
-    boolean tryLock();
+    boolean tryLock(String path) throws Exception;
 }
