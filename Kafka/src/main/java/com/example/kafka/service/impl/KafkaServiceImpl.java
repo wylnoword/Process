@@ -6,7 +6,9 @@ import org.apache.kafka.common.protocol.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.ListenableFuture;
 
 @Service
 @Slf4j
@@ -17,11 +19,11 @@ public class KafkaServiceImpl implements KafkaService {
 
     @Override
     public void sendMessage(String topic, String messages) {
-        kafkaTemplate.send(topic,messages);
+        ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(topic, messages);
     }
 
     @Override
-    @KafkaListener(topics = "test3")
+    @KafkaListener(topics = "test")
     public String receive(String message) {
         log.info("receive a message {} ",message);
         return message;
