@@ -20,6 +20,7 @@
         <module>Redis</module>
         <module>Kafka</module>
         <module>Zookeeper</module>
+        <module>Vert.x</module>
     </modules>
 
     <properties>
