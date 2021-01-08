@@ -13,7 +13,10 @@ import io.vertx.core.Promise;
 public class MainVerticle extends AbstractVerticle {
 
   public static void main(String[] args) {
+    long current = System.currentTimeMillis();
     Launcher.main(new String[] { "run", MainVerticle.class.getName()});
+    long end = System.currentTimeMillis();
+    System.out.println(end - current);
   }
 
   @Override
