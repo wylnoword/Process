@@ -21,6 +21,7 @@
         <module>Kafka</module>
         <module>Zookeeper</module>
         <module>Vert.x</module>
+        <module>Guava</module>
     </modules>
 
     <properties>
