@@ -3,8 +3,12 @@ package com.process.zookeeper.listener;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.listen.Listenable;
 import org.apache.curator.framework.recipes.cache.TreeCache;
 import org.apache.curator.framework.recipes.cache.TreeCacheEvent;
+import org.apache.curator.framework.recipes.cache.TreeCacheListener;
+
+import static org.apache.curator.framework.recipes.cache.TreeCacheEvent.Type.*;
 
 @Getter
 @Setter
