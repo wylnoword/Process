@@ -49,8 +49,11 @@ public class Customer {
  *  natural() 	对可排序类型做自然排序，如数字按大小，日期按先后排序
  *  usingToString() 	按对象的字符串形式做字典排序[lexicographical ordering]
  *  from(Comparator) 	把给定的Comparator转化为排序器
+ *  arbitrary() 按照identityHashCode "随机"排序
  *  explicit(List<T> valuesInOrder)   只能比较参数列表中存在的对象
- *
+ * @see <a href=https://blog.wangqi.love/articles/Java/guava%20Ordering%E6%80%BB%E7%BB%93.html>
+ *     guava Ordering总结
+ *     </a>
  *
  */
     public int compareTo(Customer that) {
