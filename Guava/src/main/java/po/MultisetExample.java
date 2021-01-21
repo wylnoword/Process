@@ -1,5 +1,7 @@
 package po;
 
+import com.google.common.collect.Collections2;
+import com.google.common.collect.ImmutableMultiset;
 import com.google.common.collect.Multiset;
 
 /**
@@ -34,5 +36,6 @@ import com.google.common.collect.Multiset;
  * 典型用例</a>
  */
 public class MultisetExample {
-
+    public static void main(String[] args) {
+    }
 }
