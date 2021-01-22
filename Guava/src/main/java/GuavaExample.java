@@ -1,7 +1,6 @@
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.ImmutableListMultimap;
-import com.google.common.collect.Multimap;
+import com.google.common.collect.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,6 +17,8 @@ public class GuavaExample {
      */
     public static Multimap immutableListMultimap =  ImmutableListMultimap.of();
     public static void main(String[] args) {
-        Map map = immutableListMultimap.asMap();
+//        求集合元素的笛卡尔积
+        List<List<Integer>> lists = Lists.cartesianProduct(Lists.newArrayList(2, 4), Lists.newArrayList(3, 1));
+        System.out.println(lists);
     }
 }
