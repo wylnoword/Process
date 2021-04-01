@@ -1,13 +1,13 @@
-package com.process.redis;
+package com.example.WebFlux;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RedisDemoApplication {
+public class WebFluxApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RedisDemoApplication.class, args);
+		SpringApplication.run(WebFluxApplication.class, args);
 	}
 
 }

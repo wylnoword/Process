@@ -10,17 +10,17 @@ import java.util.Map;
 @Service
 public class KeyServiceImpl implements KeyService {
 
-    @Autowired
-    RedisTemplate<String, String> redisTemplate;
+	@Autowired
+	RedisTemplate<String, String> redisTemplate;
 
-    @Override
-    public void save(Map map) {
-        redisTemplate.opsForValue().setIfAbsent("map","v");
-    }
+	@Override
+	public void save(Map map) {
+		redisTemplate.opsForValue().setIfAbsent("map", "v");
+	}
 
-    @Override
-    public Map load(Object key) {
-        return null;
-    }
+	@Override
+	public Map load(Object key) {
+		return null;
+	}
 
 }

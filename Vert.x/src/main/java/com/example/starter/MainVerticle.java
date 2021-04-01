@@ -3,18 +3,19 @@ package com.example.starter;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Launcher;
 import io.vertx.core.Promise;
+
 /**
+ * @param
  * @author wangyuliang
  * @description //vert.x demo
  * @date 15:28 2020/12/5
- * @param
  * @return
  */
 public class MainVerticle extends AbstractVerticle {
 
   public static void main(String[] args) {
     long current = System.currentTimeMillis();
-    Launcher.main(new String[] { "run", MainVerticle.class.getName()});
+    Launcher.main(new String[]{"run", MainVerticle.class.getName()});
     long end = System.currentTimeMillis();
     System.out.println(end - current);
   }

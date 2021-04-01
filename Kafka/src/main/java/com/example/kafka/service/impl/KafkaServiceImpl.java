@@ -14,23 +14,23 @@ import org.springframework.util.concurrent.ListenableFuture;
 @Slf4j
 public class KafkaServiceImpl implements KafkaService {
 
-    @Autowired
-    private KafkaTemplate<String,String> kafkaTemplate;
+	@Autowired
+	private KafkaTemplate<String, String> kafkaTemplate;
 
-    @Override
-    public void sendMessage(String topic, String messages) {
-        ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(topic, messages);
-    }
+	@Override
+	public void sendMessage(String topic, String messages) {
+		ListenableFuture<SendResult<String, String>> send = kafkaTemplate.send(topic, messages);
+	}
 
-    @Override
-    @KafkaListener(topics = "test")
-    public String receive(String message) {
-        log.info("receive a message {} ",message);
-        return message;
-    }
+	@Override
+	@KafkaListener(topics = "test")
+	public String receive(String message) {
+		log.info("receive a message {} ", message);
+		return message;
+	}
 
-    @Override
-    public void createTopic(String topicName) {
-        kafkaTemplate.setDefaultTopic(topicName);
-    }
+	@Override
+	public void createTopic(String topicName) {
+		kafkaTemplate.setDefaultTopic(topicName);
+	}
 }

@@ -10,14 +10,14 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class RedisServiceImpl implements RedisService {
 
-    @Override
-    public boolean tokenBucket(Long among, TimeUnit timeUnit, Long restoreTime) {
+	@Override
+	public boolean tokenBucket(Long among, TimeUnit timeUnit, Long restoreTime) {
 
-        return false;
-    }
+		return false;
+	}
 
-    @Override
-    public boolean leakBucket(Long among, TimeUnit timeUnit, Long restoreTime) {
-        return false;
-    }
+	@Override
+	public boolean leakBucket(Long among, TimeUnit timeUnit, Long restoreTime) {
+		return false;
+	}
 }
